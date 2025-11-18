@@ -14,8 +14,6 @@ export class AccountService {
     const account = await this.model.findByPk(id);
     if (!account) throw new BadRequestException('Account not found');
     if (amount <= 0) throw new BadRequestException('Invalid amount');
-    if (account.balance < amount)
-      throw new BadRequestException('Insufficient balance');
 
     account.balance -= amount;
     await account.save();

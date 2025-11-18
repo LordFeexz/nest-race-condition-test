@@ -48,4 +48,13 @@ describe('Race Condition Withdraw', () => {
     const final = await Account.findByPk(1);
     expect(final.balance).toBe(0);
   });
+
+  it('should throw bad request error', async () => {
+    const result = await request(app.getHttpServer())
+      .post('/api/v1/account/withdraw')
+      .send({ accountId: 1, amount: 9999999999 })
+      .timeout({ response: 5000, deadline: 10000 });
+
+    expect(result.status).toBe(400);
+  });
 });
