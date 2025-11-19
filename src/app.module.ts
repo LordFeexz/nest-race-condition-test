@@ -8,7 +8,6 @@ const conf = require('../config/config.js');
   imports: [
     SequelizeModule.forRoot({
       ...conf.development,
-      dialect: 'postgres',
       timezone: '+07:00',
       benchmark: true,
       pool: {
