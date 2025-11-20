@@ -49,7 +49,7 @@ npx sequelize-cli db:migrate
 ## 5. Seed Data
 
 ```bash
-npx sequelize-cli seed --seed 20251117022249-seed-account.js
+npx sequelize-cli db:seed --seed 20251117022249-seed-account.js
 ```
 
 ## 6. Jalankan Aplikasi (Optional)
